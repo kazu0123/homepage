@@ -7,9 +7,15 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem;
+        height: 4rem;
+        padding: 0 1rem;
         background-color: #f8f9fa;
         border-bottom: 1px solid #ddd;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
     }
 
     nav ul {
@@ -39,6 +45,10 @@
 
     div.name {
         font-weight: bold;
+    }
+
+    main {
+        padding-top: 4rem;
     }
 </style>
 

@@ -1,2 +1,26 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<style lang="scss">
+    section {
+        display: grid;
+        height: 90vh;
+    }
+</style>
+
+<section id="top">
+    <h1>小久保和喜</h1>
+</section>
+
+<section id="about-me">
+    <h2>自己紹介</h2>
+</section>
+
+<section id="projects">
+    <h2>作品</h2>
+</section>
+
+<section id="skills">
+    <h2>スキル</h2>
+</section>
+
+<section id="contact">
+    <h2>連絡先</h2>
+</section>

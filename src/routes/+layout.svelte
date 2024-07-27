@@ -1,4 +1,8 @@
 <style>
+    :global(html) {
+        scroll-behavior: smooth;
+    }
+
     :global(body) {
         margin: 0;
     }

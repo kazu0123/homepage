@@ -2,6 +2,7 @@
     section {
         display: grid;
         height: 90vh;
+        scroll-margin-top: 4rem;
     }
 </style>
 

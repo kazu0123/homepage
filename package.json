@@ -19,6 +19,7 @@
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/eslint": "^9.6.0",
+		"@types/trianglify": "^4.1.2",
 		"contentful": "^10.12.15",
 		"contentful-management": "^11.30.2",
 		"dotenv": "^16.4.5",
@@ -38,5 +39,8 @@
 	"type": "module",
 	"engines": {
 		"node": ">=18.18.0"
+	},
+	"dependencies": {
+		"trianglify": "^4.1.1"
 	}
 }

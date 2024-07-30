@@ -16,7 +16,7 @@
   }
   .header-media {
     overflow: hidden;
-    flex-basis: 50%;
+    flex-basis: 40%;
     flex-grow: 0;
   }
   .header-media:empty {
@@ -27,7 +27,7 @@
     flex-grow: 0;
   }
   .description {
-    flex-basis: 30%;
+    flex-basis: 40%;
     flex-grow: 1;
     overflow-y: auto;
   }

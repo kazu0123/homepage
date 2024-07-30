@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Card from "$lib/Card.svelte";
+	import Pattern from "$lib/Pattern.svelte";
 
     import { isResolvedAssetWithFile } from "$lib/isResolvedAssetWithFile";
 	import { isResolvedTechnologyEntry } from "$lib/Technology";
@@ -56,6 +57,8 @@
                             alt={project.fields.description}
                             class="header-media-content"
                         >
+                    {:else}
+                        <Pattern seed={project.fields.title} />
                     {/if}
                 </svelte:fragment>
                 <svelte:fragment slot="title">

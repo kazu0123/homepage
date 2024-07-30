@@ -17,4 +17,12 @@
   onMount(generatePattern);
 </script>
 
+<style>
+  canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
 <canvas bind:this={patternCanvas} />

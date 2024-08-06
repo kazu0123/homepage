@@ -8,3 +8,5 @@ export const load: PageServerLoad = async () => {
 
   return { projects }
 }
+
+export const prerender = true;

@@ -14,16 +14,30 @@
         height: 90vh;
         scroll-margin-top: 4rem;
     }
-    .project-cards {
-        display: flex;
-        list-style: none;
-    }
-    .project-cards > li {
-        height: 50vh;
-        width: 30vh;
-        margin-left: 5px;
-        :last-child {
-            margin-left: 0;
+    section#projects {
+        height: 60vh;
+        padding: 0 10vh 5vh 10vh;
+        div {
+            display: grid;
+            height: 10vh;
+            h2 {
+                margin: 0;
+                align-self: center;
+            }
+        }
+        .project-cards {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            list-style: none;
+        }
+        .project-cards > li {
+            height: 50vh;
+            width: 30vh;
+            margin-right: 5px;
+            &:last-child {
+                margin-right: 0;
+            }
         }
     }
     .header-media-content {
@@ -42,7 +56,9 @@
 </section>
 
 <section id="projects">
-    <h2>作品</h2>
+    <div>
+        <h2>作品</h2>
+    </div>
     <ul class="project-cards">
         {#each data.projects.items as project}
         <li>

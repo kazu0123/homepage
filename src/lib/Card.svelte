@@ -10,6 +10,7 @@
     border-radius: 8px;
     overflow: hidden;
     height: 100%;
+    box-sizing: border-box;
   }
   .card > * { 
     overflow: hidden;

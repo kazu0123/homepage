@@ -14,6 +14,7 @@
         height: 90vh;
         scroll-margin-top: 4rem;
     }
+
     section#projects {
         height: 60vh;
         padding: 0 10vh 5vh 10vh;
@@ -45,10 +46,27 @@
         height: 100%;
         object-fit: cover;
     }
+
+    #top {
+        align-items: center;
+        padding-left: 3rem;
+        background-color: lightgray;
+
+        > h1 {
+            font-size: 5rem;
+
+            > span {
+                display: inline-block;
+            }
+        }
+    }
 </style>
 
 <section id="top">
-    <h1>小久保和喜</h1>
+    <h1>
+        <span>小久保</span>
+        <span>和喜</span>
+    </h1>
 </section>
 
 <section id="about-me">

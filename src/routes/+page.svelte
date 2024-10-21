@@ -13,11 +13,30 @@
         display: grid;
         height: 90vh;
         scroll-margin-top: 4rem;
+        padding-left: 3rem;
+
+        .section-title {
+            font-size: 3rem;
+
+            > span {
+                display: inline-block;
+            }
+        }
+    }
+
+    section#top {
+        align-items: center;
+        background-color: lightgray;
+
+        .section-title {
+            font-size: 5rem;
+        }
     }
 
     section#projects {
         height: 60vh;
-        padding: 0 10vh 5vh 10vh;
+        padding-bottom: 5vh;
+
         div {
             display: grid;
             height: 10vh;
@@ -31,11 +50,21 @@
             padding: 0;
             display: flex;
             list-style: none;
+            overflow-x: scroll;
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+            ::-webkit-scrollbar {
+                display: none;
+            }
         }
         .project-cards > li {
             height: 50vh;
-            width: 30vh;
+            min-width: 30vh;
             margin-right: 5px;
+            flex-basis: 0;
+
             &:last-child {
                 margin-right: 0;
             }
@@ -47,42 +76,27 @@
         object-fit: cover;
     }
 
-    #top {
-        align-items: center;
-        padding-left: 3rem;
-        background-color: lightgray;
-
-        > h1 {
-            font-size: 5rem;
-
-            > span {
-                display: inline-block;
-            }
-        }
-    }
-
     section#contact {
         align-content: center;
         justify-content: left;
-        padding-left: 1rem;
         height: 30vh;
     }
 </style>
 
 <section id="top">
-    <h1>
+    <h1 class="section-title">
         <span>小久保</span>
         <span>和喜</span>
     </h1>
 </section>
 
 <section id="about-me">
-    <h2>自己紹介</h2>
+    <h2 class="section-title">自己紹介</h2>
 </section>
 
 <section id="projects">
     <div>
-        <h2>作品</h2>
+        <h2 class="section-title">作品</h2>
     </div>
     <ul class="project-cards">
         {#each data.projects.items as project}
@@ -122,11 +136,11 @@
 </section>
 
 <section id="skills">
-    <h2>スキル</h2>
+    <h2 class="section-title">スキル</h2>
 </section>
 
 <section id="contact">
-    <h2>連絡先</h2>
+    <h2 class="section-title">連絡先</h2>
     <ul>
         <li><p>メール：<a href="mailto:web-contact@kokubokazuki.com">web-contact@kokubokazuki.com</a></p></li>
     </ul>

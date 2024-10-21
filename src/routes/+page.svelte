@@ -14,6 +14,7 @@
         height: 90vh;
         scroll-margin-top: 4rem;
     }
+
     section#projects {
         height: 60vh;
         padding: 0 10vh 5vh 10vh;
@@ -45,10 +46,34 @@
         height: 100%;
         object-fit: cover;
     }
+
+    #top {
+        align-items: center;
+        padding-left: 3rem;
+        background-color: lightgray;
+
+        > h1 {
+            font-size: 5rem;
+
+            > span {
+                display: inline-block;
+            }
+        }
+    }
+
+    section#contact {
+        align-content: center;
+        justify-content: left;
+        padding-left: 1rem;
+        height: 30vh;
+    }
 </style>
 
 <section id="top">
-    <h1>小久保和喜</h1>
+    <h1>
+        <span>小久保</span>
+        <span>和喜</span>
+    </h1>
 </section>
 
 <section id="about-me">
@@ -102,4 +127,7 @@
 
 <section id="contact">
     <h2>連絡先</h2>
+    <ul>
+        <li><p>メール：<a href="mailto:web-contact@kokubokazuki.com">web-contact@kokubokazuki.com</a></p></li>
+    </ul>
 </section>

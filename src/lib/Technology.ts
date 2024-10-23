@@ -3,6 +3,7 @@ import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleC
 export interface TechnologyFields {
   name: EntryFieldTypes.Symbol;
   icon?: EntryFieldTypes.Symbol;
+  link?: EntryFieldTypes.Symbol;
 }
 
 export type TechnologySkeleton = EntrySkeletonType<TechnologyFields, "technology">;

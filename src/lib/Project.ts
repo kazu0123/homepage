@@ -8,8 +8,8 @@ export interface ProjectFields {
     title: EntryFieldTypes.Symbol;
     image?: EntryFieldTypes.AssetLink;
     description?: EntryFieldTypes.Text;
-    technologies?: EntryFieldTypes.EntryLink<TechnologySkeleton>;
     link?: EntryFieldTypes.Symbol;
+    technologies?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TechnologySkeleton>>;
 }
 
 export type ProjectSkeleton = EntrySkeletonType<ProjectFields, "project">;

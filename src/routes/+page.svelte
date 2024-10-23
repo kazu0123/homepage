@@ -123,10 +123,18 @@
                     <p>{project.fields.description}</p>
                 </svelte:fragment>
                 <svelte:fragment slot="additional-links">
-                    {#if typeof project.fields.technologies != "undefined" && isResolvedTechnologyEntry(project.fields.technologies)}
-                        <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript">
-                            {project.fields.technologies.fields.name}
+                    {#if typeof project.fields.technologies != "undefined"}
+                        {#each project.fields.technologies as technology}
+                            {#if isResolvedTechnologyEntry(technology)}
+                                {#if typeof technology.fields.link == "undefined" }
+                                    {technology.fields.name}
+                                {:else}
+                                    <a href={technology.fields.link}>
+                                        {technology.fields.name}
                         </a>
+                                {/if}
+                            {/if}
+                        {/each}
                     {/if}
                 </svelte:fragment>
             </Card>

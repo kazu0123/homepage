@@ -33,9 +33,13 @@
         }
     }
 
+    section#about-me {
+        height: 50vh;
+        background-color: azure;
+    }
+
     section#projects {
         height: 60vh;
-        padding-bottom: 5vh;
 
         div {
             display: grid;
@@ -74,6 +78,10 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    section#skills {
+        height: 40vh;
     }
 
     section#contact {
@@ -131,7 +139,7 @@
                                 {:else}
                                     <a href={technology.fields.link}>
                                         {technology.fields.name}
-                        </a>
+                                    </a>
                                 {/if}
                             {/if}
                         {/each}

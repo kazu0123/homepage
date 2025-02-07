@@ -1,3 +1,11 @@
+<script lang="ts">
+    interface Props {
+        children?: import('svelte').Snippet;
+    }
+
+    let { children }: Props = $props();
+</script>
+
 <style>
     :global(html) {
         scroll-behavior: smooth;
@@ -70,5 +78,5 @@
 </header>
 
 <main>
-    <slot />
+    {@render children?.()}
 </main>

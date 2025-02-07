@@ -2,12 +2,21 @@
 	import { onMount } from "svelte";
   import trianglify from "trianglify";
 
-  export let width: number = 1000;
-  export let height: number = 1000;
-  export let cellSize: number = 100;
-  export let seed: string = "example-seed";
+  interface Props {
+    width?: number;
+    height?: number;
+    cellSize?: number;
+    seed?: string;
+  }
 
-  let patternCanvas: HTMLCanvasElement
+  let {
+    width = 1000,
+    height = 1000,
+    cellSize = 100,
+    seed = "example-seed"
+  }: Props = $props();
+
+  let patternCanvas: HTMLCanvasElement = $state()
 
   function generatePattern() {
     const pattern = trianglify({ width, height, cellSize, seed, });
@@ -25,4 +34,4 @@
   }
 </style>
 
-<canvas bind:this={patternCanvas} />
+<canvas bind:this={patternCanvas}></canvas>

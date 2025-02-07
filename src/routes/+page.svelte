@@ -5,7 +5,11 @@
     import { isResolvedAssetWithFile } from "$lib/isResolvedAssetWithFile";
 	import { isResolvedTechnologyEntry } from "$lib/Technology";
     import type { PageData } from "./$types";
-    export let data: PageData;
+    interface Props {
+        data: PageData;
+    }
+
+    let { data }: Props = $props();
 </script>
 
 <style lang="scss">
@@ -110,7 +114,8 @@
         {#each data.projects.items as project}
         <li>
             <Card href={project.fields.link}>
-                <svelte:fragment slot="header-media">
+                <!-- @migration-task: migrate this slot by hand, `header-media` is an invalid identifier -->
+    <svelte:fragment slot="header-media">
                     {#if (
                         project.fields.image != undefined &&
                         isResolvedAssetWithFile(project.fields.image)
@@ -124,17 +129,22 @@
                         <Pattern seed={project.fields.title} />
                     {/if}
                 </svelte:fragment>
-                <svelte:fragment slot="title">
-                    <h3>{project.fields.title}</h3>
-                </svelte:fragment>
-                <svelte:fragment slot="description">
-                    <p>{project.fields.description}</p>
-                </svelte:fragment>
-                <svelte:fragment slot="additional-links">
+                {#snippet title()}
+                                    
+                        <h3>{project.fields.title}</h3>
+                    
+                                    {/snippet}
+                {#snippet description()}
+                                    
+                        <p>{project.fields.description}</p>
+                    
+                                    {/snippet}
+                <!-- @migration-task: migrate this slot by hand, `additional-links` is an invalid identifier -->
+    <svelte:fragment slot="additional-links">
                     {#if typeof project.fields.technologies != "undefined"}
                         {#each project.fields.technologies as technology}
                             {#if isResolvedTechnologyEntry(technology)}
-                                {#if typeof technology.fields.link == "undefined" }
+                                {#if typeof technology.fields.link == "undefined"}
                                     {technology.fields.name}
                                 {:else}
                                     <a href={technology.fields.link}>

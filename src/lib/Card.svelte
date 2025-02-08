@@ -1,6 +1,23 @@
-<!-- @migration-task Error while migrating Svelte code: This migration would change the name of a slot making the component unusable -->
 <script lang="ts">
-  export let href: string | null = null;
+  import type { Snippet } from 'svelte';
+
+  type Props = {
+    href?: string,
+
+		thumbnail?: Snippet,
+    title: Snippet,
+    description: Snippet,
+    additionalLinks?: Snippet,
+	}
+
+	const { 
+    href, 
+
+    thumbnail, 
+    title, 
+    description, 
+    additionalLinks,
+  }: Props = $props();
 </script>
 
 <style>
@@ -58,26 +75,26 @@
 </style>
 
 <div class="card">
-  {#if $$slots["header-media"]}
+  {#if typeof thumbnail !== "undefined"}
     <div class="header-media">
-      <slot name="header-media"></slot>
+      {@render thumbnail()}
     </div>
   {/if}
   {#if typeof href == "undefined"}
     <div class="title">
-      <slot name="title"></slot>
+      {@render title()}
     </div>
   {:else}
     <a {href} class="title">
-      <slot name="title"></slot>
+      {@render title()}
     </a>
   {/if}
   <div class="description">
-    <slot name="description"></slot>
+    {@render description()}
   </div>
-  {#if $$slots["additional-links"]}
+  {#if typeof additionalLinks!==  "undefined"}
     <div class="additional-links">
-      <slot name="additional-links"></slot>
+      {@render additionalLinks()}
     </div>
   {/if}
 </div>

@@ -114,8 +114,7 @@
         {#each data.projects.items as project}
         <li>
             <Card href={project.fields.link}>
-                <!-- @migration-task: migrate this slot by hand, `header-media` is an invalid identifier -->
-    <svelte:fragment slot="header-media">
+                {#snippet thumbnail()}
                     {#if (
                         project.fields.image != undefined &&
                         isResolvedAssetWithFile(project.fields.image)
@@ -128,19 +127,14 @@
                     {:else}
                         <Pattern />
                     {/if}
-                </svelte:fragment>
+                {/snippet}
                 {#snippet title()}
-                                    
-                        <h3>{project.fields.title}</h3>
-                    
-                                    {/snippet}
+                    <h3>{project.fields.title}</h3>
+                {/snippet}
                 {#snippet description()}
-                                    
-                        <p>{project.fields.description}</p>
-                    
-                                    {/snippet}
-                <!-- @migration-task: migrate this slot by hand, `additional-links` is an invalid identifier -->
-    <svelte:fragment slot="additional-links">
+                    <p>{project.fields.description}</p>
+                {/snippet}
+                {#snippet additionalLinks()}
                     {#if typeof project.fields.technologies != "undefined"}
                         {#each project.fields.technologies as technology}
                             {#if isResolvedTechnologyEntry(technology)}
@@ -154,7 +148,7 @@
                             {/if}
                         {/each}
                     {/if}
-                </svelte:fragment>
+                {/snippet}
             </Card>
         </li>
         {/each}

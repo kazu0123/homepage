@@ -126,7 +126,7 @@
                             class="header-media-content"
                         >
                     {:else}
-                        <Pattern seed={project.fields.title} />
+                        <Pattern />
                     {/if}
                 </svelte:fragment>
                 {#snippet title()}

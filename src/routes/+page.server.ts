@@ -1,12 +1,11 @@
-import type { PageServerLoad } from "./$types";
+import type { PageServerLoad } from './$types';
 
-import { getProjects } from "$lib/Project";
-
+import { getProjects } from '$lib/Project';
 
 export const load: PageServerLoad = async () => {
-  const projects = await getProjects();
+	const projects = await getProjects();
 
-  return { projects }
-}
+	return { projects };
+};
 
 export const prerender = true;

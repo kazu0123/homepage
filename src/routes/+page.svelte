@@ -5,6 +5,7 @@
 	import { isResolvedAssetWithFile } from '$lib/isResolvedAssetWithFile';
 	import { isResolvedTechnologyEntry } from '$lib/Technology';
 	import type { PageData } from './$types';
+	import LinkWithIcon from '$lib/LinkWithIcon.svelte';
 	interface Props {
 		data: PageData;
 	}
@@ -52,13 +53,11 @@
 						{#if typeof project.fields.technologies != 'undefined'}
 							{#each project.fields.technologies as technology}
 								{#if isResolvedTechnologyEntry(technology)}
-									{#if typeof technology.fields.link == 'undefined'}
-										{technology.fields.name}
-									{:else}
-										<a href={technology.fields.link}>
-											{technology.fields.name}
-										</a>
-									{/if}
+									<LinkWithIcon
+										href={technology.fields.link}
+										text={technology.fields.name}
+										icon={technology.fields.icon}
+									/>
 								{/if}
 							{/each}
 						{/if}

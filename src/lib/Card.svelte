@@ -71,18 +71,23 @@
 			}
 		}
 
-		.thumbnail, .title, .description,.additional-links {
+		.thumbnail,
+		.title,
+		.description,
+		.additional-links {
 			overflow: hidden;
 		}
 
 		padding-bottom: 1rem;
-		.title, .description,.additional-links {
+		.title,
+		.description,
+		.additional-links {
 			padding: 0 1rem;
 		}
 
 		.thumbnail {
 			height: 50%;
-			
+
 			border-radius: 1rem;
 		}
 

@@ -22,7 +22,7 @@
 
 <div class="card">
 	{#if typeof thumbnail !== 'undefined'}
-		<div class="header-media">
+		<div class="thumbnail">
 			{@render thumbnail()}
 		</div>
 	{/if}
@@ -45,57 +45,68 @@
 	{/if}
 </div>
 
-<style>
+<style lang="scss">
 	.card {
 		display: flex;
 		flex-direction: column;
 		border: 1px solid #ddd;
-		border-radius: 8px;
-		overflow: hidden;
-		height: 100%;
+		border-radius: 1rem;
 		box-sizing: border-box;
-	}
-	.card > * {
-		overflow: hidden;
-	}
-	.header-media {
-		overflow: hidden;
-		flex-basis: 40%;
-		flex-grow: 0;
-	}
-	.header-media:empty {
-		display: none;
-	}
-	.title {
-		flex-basis: 10%;
-		flex-grow: 0;
-	}
-	.description {
-		flex-basis: 40%;
-		flex-grow: 1;
-		overflow-y: auto;
-	}
-	.additional-links {
-		flex-basis: 10%;
-		flex-grow: 0;
-	}
-	.additional-links:empty {
-		display: none;
-	}
 
-	/* カード全体をクリッカブルにする */
-	.card,
-	.additional-links {
+		width: 100%;
+		height: 100%;
+
 		position: relative;
-	}
-	.card > a {
-		display: block;
-		text-decoration: none;
-		color: inherit;
-	}
-	.card > a:before {
-		content: '';
-		position: absolute;
-		inset: 0;
+
+		> a {
+			text-decoration: none;
+			color: inherit;
+
+			// カード全体でクリックできるようにする
+			&:before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				cursor: pointer;
+			}
+		}
+
+		.thumbnail, .title, .description,.additional-links {
+			overflow: hidden;
+		}
+
+		padding-bottom: 1rem;
+		.title, .description,.additional-links {
+			padding: 0 1rem;
+		}
+
+		.thumbnail {
+			height: 50%;
+			
+			border-radius: 1rem;
+		}
+
+		.title {
+			height: 10%;
+
+			display: flex;
+			align-items: center;
+		}
+		.description {
+			flex-grow: 1;
+		}
+
+		.additional-links {
+			height: 2rem;
+
+			display: flex;
+			flex-direction: row;
+			white-space: nowrap;
+			overflow-x: hidden;
+			align-items: center;
+			gap: 0.5rem;
+
+			position: relative;
+		}
 	}
 </style>

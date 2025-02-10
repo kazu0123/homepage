@@ -118,10 +118,17 @@
 		}
 
 		padding-bottom: 1rem;
+
 		.title,
 		.description,
 		.additional-links {
 			padding: 0 1rem;
+		}
+
+		.thumbnail,
+		.title,
+		.additional-links {
+			flex-shrink: 0;
 		}
 
 		.thumbnail {

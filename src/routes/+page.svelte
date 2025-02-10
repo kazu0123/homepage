@@ -25,9 +25,7 @@
 </section>
 
 <section id="projects">
-	<div>
-		<h2 class="section-title">作品</h2>
-	</div>
+	<h2 class="section-title">作品</h2>
 	<ul class="project-cards">
 		{#each data.projects.items as project}
 			<li>
@@ -113,15 +111,8 @@
 
 	section#projects {
 		height: 60vh;
+		min-height: 500px;
 
-		div {
-			display: grid;
-			height: 10vh;
-			h2 {
-				margin: 0;
-				align-self: center;
-			}
-		}
 		.project-cards {
 			margin: 0;
 			padding: 0;
@@ -137,9 +128,11 @@
 			}
 		}
 		.project-cards > li {
-			height: 50vh;
-			min-width: 30vh;
-			margin-right: 5px;
+			height: 100%;
+			aspect-ratio: 2 / 3;
+			max-width: max-content;
+
+			margin-right: 1rem;
 			flex-basis: 0;
 
 			&:last-child {

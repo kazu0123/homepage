@@ -10,14 +10,47 @@
 		additionalLinks?: Snippet;
 	};
 
-	const {
-		href,
+	const { href, thumbnail, title, description, additionalLinks }: Props = $props();
 
-		thumbnail,
-		title,
-		description,
-		additionalLinks
-	}: Props = $props();
+	let additionalLinkElement: HTMLElement | undefined = $state();
+	let scrollInterval: number | null = null;
+
+	let currentIndex: number = 0;
+
+	function startScrolling() {
+		if (scrollInterval !== null) return;
+		if (typeof additionalLinkElement === 'undefined') return;
+
+		scrollInterval = setInterval(() => {
+			if (!additionalLinkElement) return;
+
+			const nextIndex = (currentIndex + 1) % additionalLinkElement.children.length;
+
+			const currentElement = additionalLinkElement.children[currentIndex];
+			const nextElement = additionalLinkElement.children[nextIndex];
+			const currentElementRect = currentElement.getBoundingClientRect();
+			const nextElementRect = nextElement.getBoundingClientRect();
+
+			const scrollAmountLeft = nextElementRect.left - currentElementRect.left;
+
+			additionalLinkElement.scrollBy({ left: scrollAmountLeft, behavior: 'smooth' });
+
+			currentIndex = nextIndex;
+		}, 1000);
+	}
+
+	function stopScrolling() {
+		if (scrollInterval !== null) {
+			clearInterval(scrollInterval);
+			scrollInterval = null;
+		}
+		if (additionalLinkElement) {
+			additionalLinkElement.scrollBy({
+				left: additionalLinkElement.scrollLeft * -1,
+				behavior: 'smooth'
+			});
+		}
+	}
 </script>
 
 <div class="card">
@@ -39,7 +72,13 @@
 		{@render description()}
 	</div>
 	{#if typeof additionalLinks !== 'undefined'}
-		<div class="additional-links">
+		<div
+			class="additional-links"
+			role="list"
+			bind:this={additionalLinkElement}
+			onmouseenter={startScrolling}
+			onmouseleave={stopScrolling}
+		>
 			{@render additionalLinks()}
 		</div>
 	{/if}
@@ -112,6 +151,7 @@
 			gap: 0.5rem;
 
 			position: relative;
+			padding-left: 1rem;
 		}
 	}
 </style>

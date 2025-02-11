@@ -82,7 +82,7 @@
 <style lang="scss">
 	section {
 		display: grid;
-		height: 90vh;
+		height: calc(100vh - 6rem);
 		scroll-margin-top: 4rem;
 		padding-left: 3rem;
 

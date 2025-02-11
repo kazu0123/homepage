@@ -29,9 +29,12 @@
 		padding: 0 1em;
 
 		border-radius: calc(infinity * 1px);
-		border: 1px solid black;
+		border: 1px solid rgb(var(--base-font-color));
 		box-sizing: border-box;
 
 		line-height: 2em;
+	}
+	:root.dark span {
+		border: 1px solid rgb(var(--base-font-color-dark));
 	}
 </style>

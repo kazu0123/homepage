@@ -20,5 +20,5 @@ export default {
 			themes: [themes.cerberus, themes.rose]
 		})
 	],
-	darkMode: 'media',
+	darkMode: 'class',
 } as Config;

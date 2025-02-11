@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import '../app.css';
 
 	import { AppBar } from '@skeletonlabs/skeleton-svelte';
@@ -8,7 +9,22 @@
 	}
 
 	let { children }: Props = $props();
+
+	function toggleDarkMode() {
+		document.documentElement.classList.toggle('dark');
+	}
 </script>
+
+<svelte:head>
+	<script>
+		// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	</script>
+</svelte:head>
 
 <AppBar classes="fixed top-0 inset-x-0 z-40">
 	{#snippet lead()}
@@ -16,6 +32,14 @@
 	{/snippet}
 
 	{#snippet trail()}
+		<button
+			aria-label="ダークモード切り替え"
+			onclick={toggleDarkMode}
+			class="flex items-center justify-center"
+		>
+			<Icon icon="line-md:light-dark" />
+		</button>
+
 		<nav>
 			<ul>
 				<li><a href="/">Home</a></li>

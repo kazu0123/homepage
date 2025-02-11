@@ -21,7 +21,7 @@
 		if (scrollInterval !== null) return;
 		if (typeof additionalLinkElement === 'undefined') return;
 
-		scrollInterval = setInterval(() => {
+		scrollInterval = window.setInterval(() => {
 			if (!additionalLinkElement) return;
 
 			const nextIndex = (currentIndex + 1) % additionalLinkElement.children.length;

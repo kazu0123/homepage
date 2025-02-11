@@ -82,7 +82,7 @@
 <style lang="scss">
 	section {
 		display: grid;
-		height: calc(100vh - 6rem);
+		height: calc(100vh - 2rem);
 		scroll-margin-top: 4rem;
 		padding-left: 3rem;
 
@@ -97,7 +97,6 @@
 
 	section#top {
 		align-items: center;
-		background-color: lightgray;
 
 		.section-title {
 			font-size: 5rem;
@@ -106,7 +105,12 @@
 
 	section#about-me {
 		height: 50vh;
-		background-color: azure;
+		background-color: rgb(var(--body-background-color-dark) / 0.2);
+	}
+	:root.dark {
+		section#about-me {
+			background-color: rgb(var(--body-background-color) / 0.2);
+		}
 	}
 
 	section#projects {
